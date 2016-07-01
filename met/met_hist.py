@@ -1,6 +1,7 @@
 import json
 import requests
 import math
+import re
 
 
 BASE_URL = 'http://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/'
@@ -148,8 +149,8 @@ def get_tmin(lat, lon, year, month):
     for line in lines:
         if count > 8:
             data = line.split()
-            if int(data[0]) == year and int(data[1]) == month:
-                tmin = float(data[2])
+            if int(re.sub("[^0-9]", "", data[0])) == year and int(re.sub("[^0-9]", "", data[1])) == month:
+                tmin = float(re.sub("[^0-9]", "", data[2]))
                 return tmin
         count += 1
     return 0
@@ -172,8 +173,8 @@ def get_tmax(lat, lon, year, month):
     for line in lines:
         if count > 8:
             data = line.split()
-            if int(data[0]) == year and int(data[1]) == month:
-                tmin = float(data[3])
+            if int(re.sub("[^0-9]", "", data[0])) == year and int(re.sub("[^0-9]", "", data[1])) == month:
+                tmin = float(re.sub("[^0-9]", "", data[3]))
                 return tmin
         count += 1
     return 0
