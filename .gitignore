@@ -1,3 +1,4 @@
 *.xlsx
+__pycache__
 *.xls
 birds/BGBWclean_coded_v2.csv
