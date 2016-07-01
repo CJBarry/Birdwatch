@@ -78,23 +78,3 @@ student_2 = Student("Oliver", "Sanford")
 student_2.yr2_mark = 65
 print("year 2 mark - ",student_2.name,": ",student_2.yr2_mark,"%, Classification: ",student_1.classification())
 
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-

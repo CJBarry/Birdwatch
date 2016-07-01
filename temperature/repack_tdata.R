@@ -9,7 +9,7 @@ if(!require("stringr")){
 }
 source("td.R")
 
-tdata <- read.csv("station_data-201411010000-201412312359.csv")
+tdata <- read.csv("station_data-201411010000-201412312359_all_uk.csv")
 
 #split date time into ymdhm
 t.datetime <- str_split(levels(tdata$ob_end_time)[tdata$ob_end_time], " ")
@@ -36,4 +36,4 @@ tdata2 <- with(tdata, data.frame(dref = t.dref,
                                  maxAT = max_air_temp,
                                  meanAT = rowMeans(cbind(min_air_temp, max_air_temp))))
 
-print(str(tdata2))
+str(tdata2)
