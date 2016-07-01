@@ -1,9 +1,7 @@
 import json
-import urllib.request
 import requests
 import math
-import csv
-import numpy
+
 
 BASE_URL = 'http://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/'
 
@@ -13,7 +11,10 @@ def distance(lat1, lon1, lat2, lon2):
     Calculate the distance on the surface of a WGS-84 earth between
        this coordinate and another coordinate.
        Result returned in METRES
-    :param other: Other EarthCoordinate object
+    :param lat1: first latitude
+    :param lon1: first longitude
+    :param lat2: second latitude
+    :param lon2: second longitude
     """
     # Code from https://github.com/geopy/geopy/blob/master/geopy/distance.py with minor adaptations
     lat1 = math.radians(lat1)
@@ -111,9 +112,15 @@ def distance(lat1, lon1, lat2, lon2):
 
 
 def get_closet_site(lat, lon):
-    met_sites_file = 'met/historic.json'
-    json_data = open(met_sites_file).read()
-    data = json.loads(json_data)
+    """Finds url extension of site closest to given location
+
+    :param lat: latitude in decimal degrees
+    :param lon: longitude in decimal degrees
+    """
+    # met_sites_file = 'met/historic.json'
+    url = 'http://www.metoffice.gov.uk/pub/data/weather/uk/climate/historic/historic.json'
+    response = requests.get(url)
+    data = json.loads(response.text)
     site_url = ''
     dis = 100000000.0
 
@@ -126,6 +133,13 @@ def get_closet_site(lat, lon):
 
 
 def get_tmin(lat, lon, year, month):
+    """Finds mean min air temp for a given month
+
+    :param lat: latitude in decimal degrees
+    :param lon: longitude in decimal degrees
+    :param year: year as an int
+    :param month: month as an int
+    """
     sub_url = get_closet_site(lat, lon)
     url = BASE_URL + sub_url
     response = requests.get(url)
@@ -143,6 +157,13 @@ def get_tmin(lat, lon, year, month):
 
 
 def get_tmax(lat, lon, year, month):
+    """Finds mean mmax air temp for a given month
+
+    :param lat: latitude in decimal degrees
+    :param lon: longitude in decimal degrees
+    :param year: year as an int
+    :param month: month as an int
+    """
     sub_url = get_closet_site(lat, lon)
     url = BASE_URL + sub_url
     response = requests.get(url)
