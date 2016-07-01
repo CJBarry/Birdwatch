@@ -57,24 +57,17 @@ get_ipython().magic('matplotlib inline')
 plt.plot(data.rank_birds,data.mean_birds)
 
 
-# In[52]:
-
-plt.pie(data.Percent_gardens)
+# In[ ]:
 
 
-# In[71]:
+
+
+# In[72]:
 
 
 selected_values=data.mean_birds > 1.00
 labels=data.species[selected_values]
 mean_birds=data.mean_birds[selected_values]
-
-def make_autopct(mean_birds):
-    def my_autopct(pct):
-        total = sum(data.mean_birds)
-        val = int(round(pct*total/100.0))
-        return '{v:d}'.format(v=val)
-    return my_autopct
 
 plt.pie(mean_birds,labels=labels)
 
