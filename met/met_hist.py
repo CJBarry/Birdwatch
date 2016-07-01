@@ -117,7 +117,6 @@ def get_closet_site(lat, lon):
     :param lat: latitude in decimal degrees
     :param lon: longitude in decimal degrees
     """
-    # met_sites_file = 'met/historic.json'
     url = 'http://www.metoffice.gov.uk/pub/data/weather/uk/climate/historic/historic.json'
     response = requests.get(url)
     data = json.loads(response.text)
