@@ -1,4 +1,4 @@
-Country,Region,Area,Species,Average,Rank,% of gardens,,,,,,,,,,,,,
+Country,Region,county,species,Mean,Rank,% of gardens,,,,,,,,,,,,,
 England,EERO,Bedfordshire,Starling,4.471,1,62.87,,,,,,,,,,,,,
 England,EERO,Bedfordshire,House_Sparrow,3.992,2,67.30,,,,,,,,,,,,,
 England,EERO,Bedfordshire,Blackbird,3.113,3,96.14,,,,,,,,,,,,,

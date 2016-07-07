@@ -1,4 +1,4 @@
-Country,Region,Area,Species,Average,Rank,% of gardens,
+country,Region,county,species,Mean,Rank,% of gardens,
 Channel Islands,CHANNEL ISLANDS,CHANNEL ISLANDS,House_Sparrow,6.31,1,75.83,
 Channel Islands,CHANNEL ISLANDS,CHANNEL ISLANDS,Starling,4.20,2,56.33,
 Channel Islands,CHANNEL ISLANDS,CHANNEL ISLANDS,Chaffinch,3.01,3,72.34,
